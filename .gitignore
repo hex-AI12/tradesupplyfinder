@@ -1,0 +1,18 @@
+node_modules/
+.next/
+out/
+.vercel
+
+# Env / credentials — never commit
+.env
+.env.local
+.env*.local
+*.credentials.yaml
+.credentials.yaml
+
+# OS / editor
+.DS_Store
+*.pem
+
+# Agent instructions
+CODEX_INSTRUCTIONS.md
