@@ -64,4 +64,49 @@ export const cities: City[] = [
     description:
       'Sunnyvale pros can compare electrical and multi-trade supply houses with fast counter service and contractor account programs.',
   },
+  {
+    name: 'Houston',
+    slug: 'houston',
+    state: 'Texas',
+    stateAbbr: 'TX',
+    stateSlug: 'texas',
+    description:
+      'Houston contractors can compare plumbing, HVAC, electrical, and general supply houses across the metro. With year-round construction activity and extreme weather demand, Houston supply counters stock deep inventory for residential and commercial trades.',
+  },
+  {
+    name: 'Dallas',
+    slug: 'dallas',
+    state: 'Texas',
+    stateAbbr: 'TX',
+    stateSlug: 'texas',
+    description:
+      'Dallas trade supply options include established plumbing, HVAC, and electrical distributors serving the DFW metroplex. Find will-call hours, delivery availability, and contractor pricing from trusted local branches.',
+  },
+  {
+    name: 'Austin',
+    slug: 'austin',
+    state: 'Texas',
+    stateAbbr: 'TX',
+    stateSlug: 'texas',
+    description:
+      'Austin contractors can browse plumbing and HVAC supply houses supporting the city\'s fast-growing residential and commercial construction market. Compare inventory depth, contractor accounts, and counter hours.',
+  },
+  {
+    name: 'San Antonio',
+    slug: 'san-antonio',
+    state: 'Texas',
+    stateAbbr: 'TX',
+    stateSlug: 'texas',
+    description:
+      'San Antonio supply branches serve plumbing, HVAC, and electrical contractors across the region. Find will-call pickup, jobsite delivery, and contractor-focused pricing from local distributors.',
+  },
+  {
+    name: 'Fort Worth',
+    slug: 'fort-worth',
+    state: 'Texas',
+    stateAbbr: 'TX',
+    stateSlug: 'texas',
+    description:
+      'Fort Worth trade pros can find plumbing, electrical, and HVAC supply counters with early-morning hours, same-day will-call, and delivery to jobsites throughout Tarrant County.',
+  },
 ];

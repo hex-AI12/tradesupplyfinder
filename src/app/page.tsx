@@ -11,7 +11,7 @@ export default function HomePage() {
   const tradeCounts = getTradeCoverageCounts();
   const stateCount = getAllStateSlugs().length;
 
-  const featuredCitySlugs = ['san-jose', 'san-francisco', 'oakland', 'fremont', 'santa-clara', 'sunnyvale', 'south-san-francisco'];
+  const featuredCitySlugs = ['san-jose', 'san-francisco', 'oakland', 'fremont', 'houston', 'dallas', 'austin', 'san-antonio', 'fort-worth', 'santa-clara', 'sunnyvale', 'south-san-francisco'];
 
   return (
     <>
@@ -65,7 +65,7 @@ export default function HomePage() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="mb-2 text-center text-2xl font-bold md:text-3xl">Featured Cities</h2>
-          <p className="mb-10 text-center text-gray-500">Coverage across major Bay Area contractor markets.</p>
+          <p className="mb-10 text-center text-gray-500">Coverage across major contractor markets in California and Texas.</p>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {cities
               .filter((city) => featuredCitySlugs.includes(city.slug))
