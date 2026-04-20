@@ -109,4 +109,50 @@ export const cities: City[] = [
     description:
       'Fort Worth trade pros can find plumbing, electrical, and HVAC supply counters with early-morning hours, same-day will-call, and delivery to jobsites throughout Tarrant County.',
   },
+  // --- Florida ---
+  {
+    name: 'Miami',
+    slug: 'miami',
+    state: 'Florida',
+    stateAbbr: 'FL',
+    stateSlug: 'florida',
+    description:
+      'Miami contractors can compare plumbing, HVAC, electrical, and general supply houses serving South Florida\'s year-round construction market. Find will-call hours, delivery options, and contractor pricing from trusted distributors.',
+  },
+  {
+    name: 'Tampa',
+    slug: 'tampa',
+    state: 'Florida',
+    stateAbbr: 'FL',
+    stateSlug: 'florida',
+    description:
+      'Tampa trade supply branches serve plumbing, HVAC, and electrical contractors across the Tampa Bay area. Compare counter hours, delivery availability, and contractor account programs from local distributors.',
+  },
+  {
+    name: 'Orlando',
+    slug: 'orlando',
+    state: 'Florida',
+    stateAbbr: 'FL',
+    stateSlug: 'florida',
+    description:
+      'Orlando contractors can browse plumbing, HVAC, and electrical supply houses supporting Central Florida\'s fast-growing residential and commercial construction market.',
+  },
+  {
+    name: 'Jacksonville',
+    slug: 'jacksonville',
+    state: 'Florida',
+    stateAbbr: 'FL',
+    stateSlug: 'florida',
+    description:
+      'Jacksonville supply options include established plumbing, HVAC, and electrical distributors serving Northeast Florida. Find will-call pickup, jobsite delivery, and contractor pricing.',
+  },
+  {
+    name: 'Fort Lauderdale',
+    slug: 'fort-lauderdale',
+    state: 'Florida',
+    stateAbbr: 'FL',
+    stateSlug: 'florida',
+    description:
+      'Fort Lauderdale trade pros can find plumbing, electrical, and HVAC supply counters with early-morning hours and delivery across Broward County and the greater South Florida region.',
+  },
 ];
