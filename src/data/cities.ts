@@ -155,4 +155,49 @@ export const cities: City[] = [
     description:
       'Fort Lauderdale trade pros can find plumbing, electrical, and HVAC supply counters with early-morning hours and delivery across Broward County and the greater South Florida region.',
   },
+  {
+    name: 'New York City',
+    slug: 'new-york-city',
+    state: 'New York',
+    stateAbbr: 'NY',
+    stateSlug: 'new-york',
+    description:
+      'New York City contractors can compare plumbing, HVAC, electrical, and general supply houses across all five boroughs. NYC supply branches stock deep inventory for high-rise, commercial, and residential work, with early will-call windows and jobsite delivery citywide.',
+  },
+  {
+    name: 'Brooklyn',
+    slug: 'brooklyn',
+    state: 'New York',
+    stateAbbr: 'NY',
+    stateSlug: 'new-york',
+    description:
+      'Brooklyn trade pros can browse plumbing, electrical, and HVAC supply counters serving brownstone renovations, new residential construction, and commercial work across the borough. Many counters offer delivery to tight urban jobsites.',
+  },
+  {
+    name: 'Buffalo',
+    slug: 'buffalo',
+    state: 'New York',
+    stateAbbr: 'NY',
+    stateSlug: 'new-york',
+    description:
+      'Buffalo contractors have access to plumbing, HVAC, and electrical supply houses serving Western New York. Cold-climate expertise, boiler and hydronic stock, and deep heating equipment inventory define the region\'s distributor network.',
+  },
+  {
+    name: 'Rochester',
+    slug: 'rochester',
+    state: 'New York',
+    stateAbbr: 'NY',
+    stateSlug: 'new-york',
+    description:
+      'Rochester supply options include established plumbing, HVAC, and electrical distributors serving the Finger Lakes and Greater Rochester markets. Strong hydronic and heating inventory supports the area\'s long heating season.',
+  },
+  {
+    name: 'Albany',
+    slug: 'albany',
+    state: 'New York',
+    stateAbbr: 'NY',
+    stateSlug: 'new-york',
+    description:
+      'Albany contractors can find plumbing, HVAC, and electrical supply counters serving the Capital Region. Distributors stock for commercial, institutional, and residential work across the Albany, Schenectady, and Troy metro.',
+  },
 ];
