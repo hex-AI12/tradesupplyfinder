@@ -200,4 +200,50 @@ export const cities: City[] = [
     description:
       'Albany contractors can find plumbing, HVAC, and electrical supply counters serving the Capital Region. Distributors stock for commercial, institutional, and residential work across the Albany, Schenectady, and Troy metro.',
   },
+  // --- Illinois ---
+  {
+    name: 'Chicago',
+    slug: 'chicago',
+    state: 'Illinois',
+    stateAbbr: 'IL',
+    stateSlug: 'illinois',
+    description:
+      'Chicago contractors can compare plumbing, HVAC, electrical, and general supply houses serving one of the largest construction markets in the US. Suppliers across the city and metro stock deep inventory for high-rise, commercial, and residential trades, with early will-call windows and citywide delivery.',
+  },
+  {
+    name: 'Naperville',
+    slug: 'naperville',
+    state: 'Illinois',
+    stateAbbr: 'IL',
+    stateSlug: 'illinois',
+    description:
+      'Naperville trade pros can browse plumbing, HVAC, and electrical supply counters serving the fast-growing western Chicago suburbs. Find contractor pricing, will-call hours, and jobsite delivery to DuPage County.',
+  },
+  {
+    name: 'Schaumburg',
+    slug: 'schaumburg',
+    state: 'Illinois',
+    stateAbbr: 'IL',
+    stateSlug: 'illinois',
+    description:
+      'Schaumburg supply branches serve plumbing, HVAC, and electrical contractors across the northwest Chicago suburbs. Compare counter hours, inventory depth, and delivery availability from local distributors.',
+  },
+  {
+    name: 'Aurora',
+    slug: 'aurora',
+    state: 'Illinois',
+    stateAbbr: 'IL',
+    stateSlug: 'illinois',
+    description:
+      'Aurora contractors can find multi-trade supply houses with strong inventory for plumbing, HVAC, and electrical work. Convenient to Kane and DuPage County jobsites with delivery and will-call pickup.',
+  },
+  {
+    name: 'Rockford',
+    slug: 'rockford',
+    state: 'Illinois',
+    stateAbbr: 'IL',
+    stateSlug: 'illinois',
+    description:
+      'Rockford trade supply options include established plumbing, HVAC, and electrical distributors serving Northern Illinois. Find contractor accounts, same-day will-call, and delivery across the region.',
+  },
 ];
