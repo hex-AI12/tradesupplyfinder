@@ -246,4 +246,50 @@ export const cities: City[] = [
     description:
       'Rockford trade supply options include established plumbing, HVAC, and electrical distributors serving Northern Illinois. Find contractor accounts, same-day will-call, and delivery across the region.',
   },
+  // --- Georgia ---
+  {
+    name: 'Atlanta',
+    slug: 'atlanta',
+    state: 'Georgia',
+    stateAbbr: 'GA',
+    stateSlug: 'georgia',
+    description:
+      'Atlanta contractors can compare plumbing, HVAC, electrical, and general trade supply counters across the metro. Find will-call windows, contractor pricing, and delivery for commercial and residential jobsites.',
+  },
+  {
+    name: 'Savannah',
+    slug: 'savannah',
+    state: 'Georgia',
+    stateAbbr: 'GA',
+    stateSlug: 'georgia',
+    description:
+      'Savannah trade pros can find plumbing and HVAC supply houses serving coastal Georgia and the Lowcountry, with same-day counter pickup and delivery to jobsites.',
+  },
+  {
+    name: 'Augusta',
+    slug: 'augusta',
+    state: 'Georgia',
+    stateAbbr: 'GA',
+    stateSlug: 'georgia',
+    description:
+      'Augusta contractors can source plumbing, HVAC, and electrical supplies from established distributors serving the CSRA region. Contractor pricing and delivery available.',
+  },
+  {
+    name: 'Columbus',
+    slug: 'columbus',
+    state: 'Georgia',
+    stateAbbr: 'GA',
+    stateSlug: 'georgia',
+    description:
+      'Columbus Georgia trade supply listings cover plumbing, HVAC, and electrical distributors serving contractors across Muscogee County and the Chattahoochee Valley.',
+  },
+  {
+    name: 'Marietta',
+    slug: 'marietta',
+    state: 'Georgia',
+    stateAbbr: 'GA',
+    stateSlug: 'georgia',
+    description:
+      'Marietta and Cobb County contractors can find plumbing, HVAC, and electrical supply counters with early will-call hours and delivery to metro Atlanta north-side jobsites.',
+  },
 ];
