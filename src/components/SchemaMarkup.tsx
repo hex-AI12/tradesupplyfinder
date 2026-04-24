@@ -76,6 +76,49 @@ export function StateItemListSchema({
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
+export function StateFAQSchema({
+  stateName,
+  cityCount,
+  supplierCount,
+}: {
+  stateName: string;
+  cityCount: number;
+  supplierCount: number;
+}) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `How do I choose a trade supply house in ${stateName}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Compare will-call hours, delivery availability, contractor pricing, account requirements, trade specialty, and brand inventory. TradeSupplyFinder lists ${supplierCount} supplier locations across ${cityCount} ${stateName} cities so contractors can compare options before driving to the counter.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `Which trade suppliers are listed in ${stateName}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `TradeSupplyFinder covers plumbing, HVAC, electrical, and general contractor supply houses in ${stateName}, including pro counters with will-call pickup, jobsite delivery, showroom support, and contractor account programs.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do supply houses require a contractor account?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Some trade supply houses sell over the counter, while others are trade-only or reserve best pricing for account holders. Check each listing for account requirements, contractor pricing, and pickup hours before visiting.',
+        },
+      },
+    ],
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+}
+
 export function LocalBusinessSchema({ supplier }: { supplier: Supplier }) {
   const schema = {
     '@context': 'https://schema.org',
