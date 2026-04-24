@@ -292,4 +292,50 @@ export const cities: City[] = [
     description:
       'Marietta and Cobb County contractors can find plumbing, HVAC, and electrical supply counters with early will-call hours and delivery to metro Atlanta north-side jobsites.',
   },
+  // --- North Carolina ---
+  {
+    name: 'Charlotte',
+    slug: 'charlotte',
+    state: 'North Carolina',
+    stateAbbr: 'NC',
+    stateSlug: 'north-carolina',
+    description:
+      'Charlotte contractors can compare plumbing, HVAC, electrical, and general supply houses serving the fast-growing metro. Find will-call hours, contractor pricing, and delivery to commercial and residential jobsites.',
+  },
+  {
+    name: 'Raleigh',
+    slug: 'raleigh',
+    state: 'North Carolina',
+    stateAbbr: 'NC',
+    stateSlug: 'north-carolina',
+    description:
+      'Raleigh trade pros can find supply counters serving the Triangle with strong plumbing, HVAC, electrical, and MRO inventory for service work, renovations, and new construction.',
+  },
+  {
+    name: 'Greensboro',
+    slug: 'greensboro',
+    state: 'North Carolina',
+    stateAbbr: 'NC',
+    stateSlug: 'north-carolina',
+    description:
+      'Greensboro supplier listings cover plumbing, HVAC, electrical, and general distributors serving Triad contractors with counter pickup, delivery, and contractor account programs.',
+  },
+  {
+    name: 'Durham',
+    slug: 'durham',
+    state: 'North Carolina',
+    stateAbbr: 'NC',
+    stateSlug: 'north-carolina',
+    description:
+      'Durham contractors can compare Triangle-area trade supply houses for fast will-call pickup, jobsite delivery, and stocked inventory for service and commercial projects.',
+  },
+  {
+    name: 'Wilmington',
+    slug: 'wilmington',
+    state: 'North Carolina',
+    stateAbbr: 'NC',
+    stateSlug: 'north-carolina',
+    description:
+      'Wilmington trade pros can locate coastal North Carolina plumbing, HVAC, electrical, and general suppliers with inventory for residential service, marine-adjacent work, and storm-season repairs.',
+  },
 ];

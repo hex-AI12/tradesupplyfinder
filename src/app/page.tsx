@@ -11,7 +11,7 @@ export default function HomePage() {
   const tradeCounts = getTradeCoverageCounts();
   const stateCount = getAllStateSlugs().length;
 
-  const featuredCitySlugs = ['san-jose', 'san-francisco', 'houston', 'dallas', 'austin', 'miami', 'tampa', 'orlando', 'new-york-city', 'brooklyn', 'buffalo', 'albany'];
+  const featuredCitySlugs = ['san-jose', 'san-francisco', 'houston', 'dallas', 'austin', 'miami', 'tampa', 'orlando', 'new-york-city', 'brooklyn', 'buffalo', 'albany', 'charlotte', 'raleigh', 'greensboro', 'durham'];
 
   return (
     <>
