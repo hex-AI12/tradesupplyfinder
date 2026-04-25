@@ -292,6 +292,34 @@ export const cities: City[] = [
     description:
       'Marietta and Cobb County contractors can find plumbing, HVAC, and electrical supply counters with early will-call hours and delivery to metro Atlanta north-side jobsites.',
   },
+  // --- Colorado ---
+  {
+    name: 'Denver',
+    slug: 'denver',
+    state: 'Colorado',
+    stateAbbr: 'CO',
+    stateSlug: 'colorado',
+    description:
+      'Denver contractors can compare plumbing, HVAC, electrical, and general supply houses serving the Front Range, with early will-call counters, warehouse pickup, and delivery to urban and mountain-adjacent jobsites.',
+  },
+  {
+    name: 'Colorado Springs',
+    slug: 'colorado-springs',
+    state: 'Colorado',
+    stateAbbr: 'CO',
+    stateSlug: 'colorado',
+    description:
+      'Colorado Springs trade pros can find plumbing, HVAC, and electrical supply counters supporting residential service, commercial projects, military-adjacent work, and fast Front Range material runs.',
+  },
+  {
+    name: 'Aurora',
+    slug: 'aurora',
+    state: 'Colorado',
+    stateAbbr: 'CO',
+    stateSlug: 'colorado',
+    description:
+      'Aurora contractors can browse East Denver metro supply houses with plumbing, HVAC, industrial, and waterworks inventory, plus early pickup windows and jobsite delivery options.',
+  },
   // --- North Carolina ---
   {
     name: 'Charlotte',
