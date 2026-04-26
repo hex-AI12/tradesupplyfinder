@@ -9,6 +9,14 @@ export function WebSiteSchema() {
     name: 'TradeSupplyFinder',
     url: BASE_URL,
     description: 'Find and compare trade supply houses for plumbing, HVAC, electrical, and general contractors.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/{state}/{city}`,
+      },
+      'query-input': 'required name=city',
+    },
   };
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
@@ -123,21 +131,47 @@ export function LocalBusinessSchema({ supplier }: { supplier: Supplier }) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Store',
+    '@id': `${BASE_URL}/supplier/${supplier.slug}#store`,
     name: supplier.name,
     telephone: supplier.phone,
     description: supplier.description,
+    url: `${BASE_URL}/supplier/${supplier.slug}`,
+    priceRange: supplier.hasContractorPricing ? 'Contractor pricing available' : 'Call for pricing',
+    openingHours: supplier.willCallHours,
     address: {
       '@type': 'PostalAddress',
       streetAddress: supplier.address,
       addressLocality: supplier.city,
       addressRegion: supplier.stateAbbr,
+      addressCountry: 'US',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: supplier.city,
+      containedInPlace: {
+        '@type': 'State',
+        name: supplier.state,
+      },
     },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: supplier.rating,
       reviewCount: supplier.reviewCount,
     },
-    url: `${BASE_URL}/supplier/${supplier.slug}`,
+    brand: supplier.brands.map((brand) => ({
+      '@type': 'Brand',
+      name: brand,
+    })),
+    makesOffer: supplier.trades.map((trade) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: `${trade} supply counter`,
+        serviceType: trade,
+      },
+      availability: supplier.requiresAccount ? 'https://schema.org/LimitedAvailability' : 'https://schema.org/InStock',
+      eligibleCustomerType: supplier.requiresAccount ? 'Contractor account holders' : 'Contractors and walk-in customers',
+    })),
   };
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
