@@ -366,4 +366,33 @@ export const cities: City[] = [
     description:
       'Wilmington trade pros can locate coastal North Carolina plumbing, HVAC, electrical, and general suppliers with inventory for residential service, marine-adjacent work, and storm-season repairs.',
   },
+  // --- Arizona ---
+  {
+    name: 'Phoenix',
+    slug: 'phoenix',
+    state: 'Arizona',
+    stateAbbr: 'AZ',
+    stateSlug: 'arizona',
+    description:
+      'Phoenix contractors can compare plumbing, HVAC, electrical, and general supply houses serving the Valley with early will-call counters, desert-climate equipment stock, and jobsite delivery across the metro.',
+  },
+  {
+    name: 'Mesa',
+    slug: 'mesa',
+    state: 'Arizona',
+    stateAbbr: 'AZ',
+    stateSlug: 'arizona',
+    description:
+      'Mesa trade pros can find East Valley HVAC, plumbing, and electrical supply counters with contractor account programs, warehouse pickup, and delivery to residential and commercial jobsites.',
+  },
+  {
+    name: 'Tucson',
+    slug: 'tucson',
+    state: 'Arizona',
+    stateAbbr: 'AZ',
+    stateSlug: 'arizona',
+    description:
+      'Tucson contractors can browse trade suppliers with strong HVAC/R, plumbing, electrical, and repair inventory for hot-weather service work, remodels, and light commercial projects.',
+  },
+
 ];
