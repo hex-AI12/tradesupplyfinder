@@ -394,5 +394,15 @@ export const cities: City[] = [
     description:
       'Tucson contractors can browse trade suppliers with strong HVAC/R, plumbing, electrical, and repair inventory for hot-weather service work, remodels, and light commercial projects.',
   },
+  // --- Washington ---
+  {
+    name: 'Seattle',
+    slug: 'seattle',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    stateSlug: 'washington',
+    description:
+      'Seattle contractors can compare plumbing, HVAC, electrical, and general supply houses serving dense urban jobsites, remodels, tenant improvements, and commercial service work across the Puget Sound region.',
+  },
 
 ];
