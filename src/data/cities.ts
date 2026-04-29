@@ -404,5 +404,15 @@ export const cities: City[] = [
     description:
       'Seattle contractors can compare plumbing, HVAC, electrical, and general supply houses serving dense urban jobsites, remodels, tenant improvements, and commercial service work across the Puget Sound region.',
   },
+  // --- Oregon ---
+  {
+    name: 'Portland',
+    slug: 'portland',
+    state: 'Oregon',
+    stateAbbr: 'OR',
+    stateSlug: 'oregon',
+    description:
+      'Portland contractors can compare plumbing, HVAC, electrical, and industrial supply houses serving infill remodels, commercial tenant improvements, service work, and warehouse pickup runs across the metro.',
+  },
 
 ];
