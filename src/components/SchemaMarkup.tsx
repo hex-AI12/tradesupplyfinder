@@ -58,6 +58,76 @@ export function CityItemListSchema({ city, suppliers }: { city: City; suppliers:
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
+export function TradeCategoryItemListSchema({
+  city,
+  tradeName,
+  suppliers,
+}: {
+  city: City;
+  tradeName: string;
+  suppliers: Supplier[];
+}) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${tradeName} Supply Houses in ${city.name}, ${city.stateAbbr}`,
+    numberOfItems: suppliers.length,
+    itemListElement: suppliers.map((supplier, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Store',
+        name: supplier.name,
+        telephone: supplier.phone,
+        url: `${BASE_URL}/supplier/${supplier.slug}`,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: supplier.address,
+          addressLocality: supplier.city,
+          addressRegion: supplier.stateAbbr,
+          addressCountry: 'US',
+        },
+      },
+    })),
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+}
+
+export function TradeCategoryFAQSchema({
+  city,
+  tradeName,
+}: {
+  city: City;
+  tradeName: string;
+}) {
+  const lowerTradeName = tradeName.toLowerCase();
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `Do ${lowerTradeName} suppliers in ${city.name} offer will-call pickup?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Most ${lowerTradeName} suppliers listed for ${city.name}, ${city.stateAbbr} support will-call pickup during posted counter hours. Contractors should call ahead for same-day availability on critical items.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I get contractor pricing without an account?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Some trade supply locations offer cash sales, but best pricing is usually tied to a contractor account. Each supplier page notes account requirements and contractor pricing details.',
+        },
+      },
+    ],
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+}
+
 export function StateItemListSchema({
   stateName,
   suppliers,
