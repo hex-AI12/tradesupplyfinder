@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SupplierCard from '@/components/SupplierCard';
-import { BreadcrumbSchema } from '@/components/SchemaMarkup';
+import { BreadcrumbSchema, TradeCategoryFAQSchema, TradeCategoryItemListSchema } from '@/components/SchemaMarkup';
 import { getAllCities, getAllTradeCategories, getCityBySlug, getSuppliersByCityAndTrade, getTradeCategoryBySlug } from '@/lib/data';
 
 interface Props {
@@ -48,6 +48,8 @@ export default function CategoryPage({ params }: Props) {
           { name: category.name, href: `/${city.stateSlug}/${city.slug}/${category.slug}` },
         ]}
       />
+      <TradeCategoryItemListSchema city={city} tradeName={category.name} suppliers={suppliers} />
+      <TradeCategoryFAQSchema city={city} tradeName={category.name} />
 
       <div className="mx-auto max-w-7xl px-4 py-10">
         <nav className="mb-6 text-sm text-gray-400">
