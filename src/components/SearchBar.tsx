@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 interface CityOption {
   slug: string;
   name: string;
+  state: string;
   stateSlug: string;
   stateAbbr: string;
 }
@@ -20,10 +21,17 @@ export default function SearchBar({ cities }: Props) {
   const [highlightIndex, setHighlightIndex] = useState(-1);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const normalizedQuery = query.trim().toLowerCase();
 
   const filtered =
-    query.length > 0
-      ? cities.filter((city) => city.name.toLowerCase().includes(query.toLowerCase()))
+    normalizedQuery.length > 0
+      ? cities
+          .filter((city) =>
+            [city.name, city.state, city.stateAbbr].some((value) =>
+              value.toLowerCase().includes(normalizedQuery)
+            )
+          )
+          .slice(0, 8)
       : [];
 
   useEffect(() => {
@@ -47,7 +55,7 @@ export default function SearchBar({ cities }: Props) {
     event.preventDefault();
     if (filtered.length === 0) return;
 
-    const selectedIndex = highlightIndex >= 0 ? highlightIndex : 0;
+    const selectedIndex = highlightIndex >= 0 ? Math.min(highlightIndex, filtered.length - 1) : 0;
     navigateToCity(filtered[selectedIndex]);
   }
 
@@ -60,6 +68,7 @@ export default function SearchBar({ cities }: Props) {
       setHighlightIndex((current) => Math.max(current - 1, 0));
     } else if (event.key === 'Escape') {
       setShowDropdown(false);
+      setHighlightIndex(-1);
     }
   }
 
@@ -76,10 +85,10 @@ export default function SearchBar({ cities }: Props) {
           }}
           onFocus={() => setShowDropdown(true)}
           onKeyDown={handleKeyDown}
-          placeholder="Search city..."
+          placeholder="Search city or state..."
           className="flex-1 rounded-l-lg px-4 py-3 text-base text-gray-900 outline-none"
           autoComplete="off"
-          aria-label="Search city"
+          aria-label="Search by city or state"
         />
         <button
           type="submit"
@@ -90,22 +99,29 @@ export default function SearchBar({ cities }: Props) {
       </form>
 
       {showDropdown && filtered.length > 0 && (
-        <ul className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg">
+        <ul className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg" role="listbox" aria-label="City search results">
           {filtered.map((city, index) => (
             <li key={`${city.stateSlug}/${city.slug}`}>
               <button
                 type="button"
                 onClick={() => navigateToCity(city)}
+                role="option"
+                aria-selected={index === highlightIndex}
                 className={`flex w-full items-center justify-between px-5 py-3 text-left text-gray-900 transition-colors hover:bg-navy-50 ${
                   index === highlightIndex ? 'bg-navy-50' : ''
                 }`}
               >
                 <span className="font-medium">{city.name}</span>
-                <span className="text-sm text-gray-400">{city.stateAbbr}</span>
+                <span className="text-sm text-gray-400">{city.stateAbbr} · {city.state}</span>
               </button>
             </li>
           ))}
         </ul>
+      )}
+      {showDropdown && query.length > 0 && filtered.length === 0 && (
+        <div className="absolute left-0 right-0 top-full z-50 mt-1 rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm text-gray-500 shadow-lg">
+          No cities found for &ldquo;{query}&rdquo; — try searching by city or state.
+        </div>
       )}
     </div>
   );
