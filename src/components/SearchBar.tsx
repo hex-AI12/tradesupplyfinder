@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface CityOption {
@@ -21,6 +21,7 @@ export default function SearchBar({ cities }: Props) {
   const [highlightIndex, setHighlightIndex] = useState(-1);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const resultsListId = useId();
   const normalizedQuery = query.trim().toLowerCase();
 
   const filtered =
@@ -89,6 +90,10 @@ export default function SearchBar({ cities }: Props) {
           className="flex-1 rounded-l-lg px-4 py-3 text-base text-gray-900 outline-none"
           autoComplete="off"
           aria-label="Search by city or state"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-controls={resultsListId}
+          aria-expanded={showDropdown && filtered.length > 0}
         />
         <button
           type="submit"
@@ -99,7 +104,7 @@ export default function SearchBar({ cities }: Props) {
       </form>
 
       {showDropdown && filtered.length > 0 && (
-        <ul className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg" role="listbox" aria-label="City search results">
+        <ul id={resultsListId} className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg" role="listbox" aria-label="City search results">
           {filtered.map((city, index) => (
             <li key={`${city.stateSlug}/${city.slug}`}>
               <button
