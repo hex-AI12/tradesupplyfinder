@@ -22,6 +22,7 @@ export default function SearchBar({ cities }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const resultsListId = useId();
+  const activeOptionId = highlightIndex >= 0 ? `${resultsListId}-option-${highlightIndex}` : undefined;
   const normalizedQuery = query.trim().toLowerCase();
 
   const filtered =
@@ -94,6 +95,7 @@ export default function SearchBar({ cities }: Props) {
           aria-autocomplete="list"
           aria-controls={resultsListId}
           aria-expanded={showDropdown && filtered.length > 0}
+          aria-activedescendant={activeOptionId}
         />
         <button
           type="submit"
@@ -108,6 +110,7 @@ export default function SearchBar({ cities }: Props) {
           {filtered.map((city, index) => (
             <li key={`${city.stateSlug}/${city.slug}`}>
               <button
+                id={`${resultsListId}-option-${index}`}
                 type="button"
                 onClick={() => navigateToCity(city)}
                 role="option"
