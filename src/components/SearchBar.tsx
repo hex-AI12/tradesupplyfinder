@@ -22,7 +22,6 @@ export default function SearchBar({ cities }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const resultsListId = useId();
-  const activeOptionId = highlightIndex >= 0 ? `${resultsListId}-option-${highlightIndex}` : undefined;
   const normalizedQuery = query.trim().toLowerCase();
 
   const filtered =
@@ -35,6 +34,7 @@ export default function SearchBar({ cities }: Props) {
           )
           .slice(0, 8)
       : [];
+  const activeOptionId = highlightIndex >= 0 && highlightIndex < filtered.length ? `${resultsListId}-option-${highlightIndex}` : undefined;
 
   useEffect(() => {
     const onClickOutside = (event: MouseEvent) => {
@@ -64,9 +64,11 @@ export default function SearchBar({ cities }: Props) {
   function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'ArrowDown') {
       event.preventDefault();
+      if (filtered.length === 0) return;
       setHighlightIndex((current) => Math.min(current + 1, filtered.length - 1));
     } else if (event.key === 'ArrowUp') {
       event.preventDefault();
+      if (filtered.length === 0) return;
       setHighlightIndex((current) => Math.max(current - 1, 0));
     } else if (event.key === 'Escape') {
       setShowDropdown(false);
