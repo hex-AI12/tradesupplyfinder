@@ -129,7 +129,11 @@ export default function SearchBar({ cities }: Props) {
         </ul>
       )}
       {showDropdown && query.length > 0 && filtered.length === 0 && (
-        <div className="absolute left-0 right-0 top-full z-50 mt-1 rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm text-gray-500 shadow-lg">
+        <div
+          className="absolute left-0 right-0 top-full z-50 mt-1 rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm text-gray-500 shadow-lg"
+          role="status"
+          aria-live="polite"
+        >
           No cities found for &ldquo;{query}&rdquo; — try searching by city or state.
         </div>
       )}
