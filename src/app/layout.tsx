@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -10,6 +10,10 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 const inter = Inter({ subsets: ['latin'] });
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID;
+
+export const viewport: Viewport = {
+  themeColor: '#0c1636',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://tradesupplyfinder.com'),
