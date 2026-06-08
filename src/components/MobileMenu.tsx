@@ -45,6 +45,7 @@ export default function MobileMenu() {
       <aside
         id={menuId}
         aria-hidden={!open}
+        inert={!open}
         className={`fixed right-0 top-0 z-40 h-full w-72 bg-navy-900 p-6 pt-20 transition-transform ${open ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <nav className="space-y-2">
