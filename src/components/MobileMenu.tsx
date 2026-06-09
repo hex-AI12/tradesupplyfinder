@@ -13,6 +13,7 @@ const navLinks = [
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const menuId = 'mobile-navigation-menu';
 
   useEffect(() => {
     setOpen(false);
@@ -31,6 +32,7 @@ export default function MobileMenu() {
         onClick={() => setOpen((current) => !current)}
         aria-label={open ? 'Close menu' : 'Open menu'}
         aria-expanded={open}
+        aria-controls={menuId}
         className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5"
       >
         <span className={`block h-0.5 w-6 bg-white transition-all ${open ? 'translate-y-2 rotate-45' : ''}`} />
@@ -40,7 +42,12 @@ export default function MobileMenu() {
 
       {open && <button type="button" className="fixed inset-0 z-40 bg-black/40" onClick={() => setOpen(false)} aria-label="Close menu overlay" />}
 
-      <aside className={`fixed right-0 top-0 z-40 h-full w-72 bg-navy-900 p-6 pt-20 transition-transform ${open ? 'translate-x-0' : 'translate-x-full'}`}>
+      <aside
+        id={menuId}
+        aria-hidden={!open}
+        inert={!open}
+        className={`fixed right-0 top-0 z-40 h-full w-72 bg-navy-900 p-6 pt-20 transition-transform ${open ? 'translate-x-0' : 'translate-x-full'}`}
+      >
         <nav className="space-y-2">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;

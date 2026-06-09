@@ -41,6 +41,40 @@ export function getSuppliersByCity(cityName: string): Supplier[] {
     .sort((a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount);
 }
 
+export interface CitySupplierInsights {
+  deliveryCount: number;
+  openCounterCount: number;
+  contractorPricingCount: number;
+  showroomCount: number;
+  tradeCounts: Record<TradeCategorySlug, number>;
+  topRatedSupplier?: Supplier;
+}
+
+export function getCitySupplierInsights(cityName: string): CitySupplierInsights {
+  const citySuppliers = getSuppliersByCity(cityName);
+  const tradeCounts: Record<TradeCategorySlug, number> = {
+    plumbing: 0,
+    hvac: 0,
+    electrical: 0,
+    general: 0,
+  };
+
+  for (const supplier of citySuppliers) {
+    for (const trade of supplier.trades) {
+      tradeCounts[trade] += 1;
+    }
+  }
+
+  return {
+    deliveryCount: citySuppliers.filter((supplier) => supplier.hasDelivery).length,
+    openCounterCount: citySuppliers.filter((supplier) => !supplier.requiresAccount).length,
+    contractorPricingCount: citySuppliers.filter((supplier) => supplier.hasContractorPricing).length,
+    showroomCount: citySuppliers.filter((supplier) => supplier.hasShowroom).length,
+    tradeCounts,
+    topRatedSupplier: citySuppliers[0],
+  };
+}
+
 export function getSuppliersByCityAndTrade(cityName: string, trade: TradeCategorySlug): Supplier[] {
   return getSuppliersByCity(cityName).filter((supplier) => supplier.trades.includes(trade));
 }
