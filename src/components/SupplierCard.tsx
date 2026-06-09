@@ -11,11 +11,14 @@ export default function SupplierCard({ supplier }: { supplier: Supplier }) {
           </Link>
           <p className="text-sm text-gray-500">{supplier.address}</p>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="font-semibold text-accent">
+        <div
+          className="flex items-center gap-2"
+          aria-label={`${supplier.rating} out of 5 stars from ${supplier.reviewCount} reviews`}
+        >
+          <span className="font-semibold text-accent" aria-hidden="true">
             {supplier.rating} <span aria-hidden="true">★</span>
           </span>
-          <span className="text-xs text-gray-400">({supplier.reviewCount} reviews)</span>
+          <span className="text-xs text-gray-400" aria-hidden="true">({supplier.reviewCount} reviews)</span>
         </div>
       </div>
 
