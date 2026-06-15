@@ -12,6 +12,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tradesupplyfinder.com'),
   title: { default: 'TradeSupplyFinder — Find Trade Supply Houses Near You', template: '%s | TradeSupplyFinder' },
   description:
     'Compare plumbing, HVAC, electrical, and general trade supply houses by city. Find will-call hours, ratings, and contractor-friendly services.',
