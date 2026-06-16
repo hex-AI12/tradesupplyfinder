@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface CityOption {
@@ -19,11 +19,17 @@ export default function SearchBar({ cities }: Props) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [highlightIndex, setHighlightIndex] = useState(-1);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const resultsListId = useId();
   const router = useRouter();
+  const normalizedQuery = query.trim().toLowerCase();
 
   const filtered =
-    query.length > 0
-      ? cities.filter((city) => city.name.toLowerCase().includes(query.toLowerCase()))
+    normalizedQuery.length > 0
+      ? cities
+          .filter((city) =>
+            [city.name, city.stateAbbr].some((value) => value.toLowerCase().includes(normalizedQuery))
+          )
+          .slice(0, 8)
       : [];
 
   useEffect(() => {
@@ -80,6 +86,11 @@ export default function SearchBar({ cities }: Props) {
           className="flex-1 rounded-l-lg px-4 py-3 text-base text-gray-900 outline-none"
           autoComplete="off"
           aria-label="Search city"
+          aria-autocomplete="list"
+          aria-controls={resultsListId}
+          aria-expanded={showDropdown && filtered.length > 0}
+          aria-activedescendant={highlightIndex >= 0 ? `${resultsListId}-option-${highlightIndex}` : undefined}
+          role="combobox"
         />
         <button
           type="submit"
@@ -90,9 +101,14 @@ export default function SearchBar({ cities }: Props) {
       </form>
 
       {showDropdown && filtered.length > 0 && (
-        <ul className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg">
+        <ul
+          id={resultsListId}
+          className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg"
+          role="listbox"
+          aria-label="City search results"
+        >
           {filtered.map((city, index) => (
-            <li key={`${city.stateSlug}/${city.slug}`}>
+            <li key={`${city.stateSlug}/${city.slug}`} id={`${resultsListId}-option-${index}`} role="option" aria-selected={index === highlightIndex}>
               <button
                 type="button"
                 onClick={() => navigateToCity(city)}
@@ -106,6 +122,11 @@ export default function SearchBar({ cities }: Props) {
             </li>
           ))}
         </ul>
+      )}
+      {showDropdown && query.length > 0 && filtered.length === 0 && (
+        <div className="absolute left-0 right-0 top-full z-50 mt-1 rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm text-gray-500 shadow-lg" role="status">
+          No cities found for &ldquo;{query}&rdquo; — try searching by city or state abbreviation.
+        </div>
       )}
     </div>
   );

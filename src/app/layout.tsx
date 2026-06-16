@@ -12,6 +12,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tradesupplyfinder.com'),
   title: { default: 'TradeSupplyFinder — Find Trade Supply Houses Near You', template: '%s | TradeSupplyFinder' },
   description:
     'Compare plumbing, HVAC, electrical, and general trade supply houses by city. Find will-call hours, ratings, and contractor-friendly services.',
@@ -55,15 +56,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
       </head>
-      {GA_ID && (
-        <>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-          <Script id="ga4-init" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
-          </Script>
-        </>
-      )}
       <body className={`${inter.className} bg-gray-50 text-gray-900 antialiased`}>
+        {GA_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+            </Script>
+          </>
+        )}
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
