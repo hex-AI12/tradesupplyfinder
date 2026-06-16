@@ -21,10 +21,15 @@ export default function SearchBar({ cities }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const resultsListId = useId();
   const router = useRouter();
+  const normalizedQuery = query.trim().toLowerCase();
 
   const filtered =
-    query.length > 0
-      ? cities.filter((city) => city.name.toLowerCase().includes(query.toLowerCase()))
+    normalizedQuery.length > 0
+      ? cities
+          .filter((city) =>
+            [city.name, city.stateAbbr].some((value) => value.toLowerCase().includes(normalizedQuery))
+          )
+          .slice(0, 8)
       : [];
 
   useEffect(() => {
@@ -117,6 +122,11 @@ export default function SearchBar({ cities }: Props) {
             </li>
           ))}
         </ul>
+      )}
+      {showDropdown && query.length > 0 && filtered.length === 0 && (
+        <div className="absolute left-0 right-0 top-full z-50 mt-1 rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm text-gray-500 shadow-lg" role="status">
+          No cities found for &ldquo;{query}&rdquo; — try searching by city or state abbreviation.
+        </div>
       )}
     </div>
   );
