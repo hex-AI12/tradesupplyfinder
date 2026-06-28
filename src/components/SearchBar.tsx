@@ -54,12 +54,22 @@ export default function SearchBar({ cities }: Props) {
   function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'ArrowDown') {
       event.preventDefault();
+      setShowDropdown(true);
+      if (filtered.length === 0) {
+        setHighlightIndex(-1);
+        return;
+      }
       setHighlightIndex((current) => Math.min(current + 1, filtered.length - 1));
     } else if (event.key === 'ArrowUp') {
       event.preventDefault();
-      setHighlightIndex((current) => Math.max(current - 1, 0));
+      if (filtered.length === 0) {
+        setHighlightIndex(-1);
+        return;
+      }
+      setHighlightIndex((current) => (current <= 0 ? filtered.length - 1 : current - 1));
     } else if (event.key === 'Escape') {
       setShowDropdown(false);
+      setHighlightIndex(-1);
     }
   }
 
